@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load admin_urls %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/common.css' %}">
+    <link rel="stylesheet" href="{% static 'css/account/user_page.css' %}">
+{% endblock %}
+
+{% block title %}{{ user }}{% endblock %}
+
+{% block content %}
+
+    <section class="section">
+        <div class="container">
+            <div class="user__inner">
+                <div class="user__item--info">
+                    <div class="user_info">
+                        <div class="name username">{{ customer }}</div>
+                        <div class="name">Name: {{ customer.first_name }} {{ customer.last_name }}</div>
+                        <div class="name"> Email: {{ customer.email }}</div>
+                        <div class="name"><a href="{% url 'users:password-change' %}">Change password</a></div>
+                    </div>
+                </div>
+                <div class="user__item--special">
+                    <div class="user_tickets">
+                        <div class="user__title">Tickets</div>
+{#                        {% for ticket in tickets %}#}
+{#                            <div class="ticket">#}
+{#                                <div class="ticket__image">#}
+{#                                    <img src="{% static ticket.play.performance.get_image_url %}">#}
+{#                                </div>#}
+{#                                <div class="ticket__info">#}
+{#                                    <div class="ticket__name">#}
+{#                                        <a href="{{ ticket.play.performance.get_absolute_url }}">#}
+{#                                            {{ ticket.play.performance.title }}#}
+{#                                        </a>#}
+{#                                    </div>#}
+{#                                    <div class="ticket__details">Hall: {{ ticket.play.hall }}. Seat: {{ ticket.seat }}.#}
+{#                                        Sector: {{ ticket.sector }}. Price: {{ ticket.price }}#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        {% endfor %}#}
+                    </div>
+                    <div class="admin__item">
+                        {% if perms.editable %}
+                            <div class="admin__name">Administration</div>
+                            <div class="models"><a href="#">Authors</a></div>
+                            <div class="models"><a href="#">Performances</a></div>
+                            <div class="models"><a href="#">Plays</a></div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

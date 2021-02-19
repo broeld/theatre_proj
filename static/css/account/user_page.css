@@ -1,0 +1,91 @@
+.user__inner {
+    display: flex;
+
+    position: relative;
+    justify-content: space-between;
+}
+
+.user__item--info {
+    border-right: #a36a5f solid 3px;
+    width: 20%;
+}
+
+.user__item--special {
+    width: 75%;
+}
+
+.name {
+    font-size: 15px;
+    font-weight: 600;
+
+    margin: 10px 0;
+}
+
+.name a {
+    font-size: 12px;
+    color: #333333;
+}
+
+.username {
+    text-transform: uppercase;
+    font-size: 25px;
+    margin-top: 0;
+}
+
+.user__title {
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.ticket {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    margin-bottom: 10px;
+}
+
+.ticket:last-child {
+    margin-bottom: 30px;
+}
+
+.ticket__image {
+    width: 20%;
+}
+
+.ticket__info {
+    width: 75%;
+}
+
+.ticket__image img {
+    display: inline-block;
+    max-width: 100%;
+    align-content: center;
+}
+
+.ticket__name, .ticket__name a {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 20px;
+
+    text-decoration: none;
+    color: #333333;
+}
+
+.admin__name {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 25px;
+
+    margin-bottom: 10px;
+}
+
+.models a{
+    text-decoration: none;
+    color: #333333;
+
+    font-size: 17px;
+    margin: 3px 0;
+}

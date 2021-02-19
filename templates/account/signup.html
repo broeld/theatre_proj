@@ -1,0 +1,48 @@
+{% extends 'account/register.html' %}
+{% load static %}
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/account/signup.css' %}">
+{% endblock %}
+
+{% block title %}Sign up{% endblock %}
+
+{% block section_title %}Sign up{% endblock %}
+
+{% block form_item %}
+    <div class="auth__form">
+        <form method="post">
+            <div class="auth__networks">
+                <input class="btn" type="button" value="Sign up with Google">
+                <input class="btn" type="button" value="Sign up with Facebook">
+            </div>
+            {% if message %}
+                <div class="auth__message">
+                    {{ message }}!
+                </div>
+            {% endif %}
+            {% csrf_token %}
+            <div class="auth__data">Username:</div>
+            <div>{{ form.username }}</div>
+            <div class="auth__data">First name:</div>
+            <div>{{ form.first_name }}</div>
+            <div class="auth__data">Last name:</div>
+            <div>{{ form.last_name }}</div>
+            <div class="auth__data">Email:</div>
+            <div>{{ form.email }}</div>
+            <div class="auth__data">Password:</div>
+            <div>{{ form.password1 }}</div>
+            <div class="auth__data">Confirm password:</div>
+            <div>{{ form.password2 }}</div>
+            <div class="auth__btn">
+                <p><input class="btn" type="submit" value="Sign up"></p>
+            </div>
+        </form>
+    </div>
+
+    <div class="auth__signup">
+        Have an account already?
+        <a href="{% url 'users:login' %}">Log in</a>
+    </div>
+
+{% endblock %}
+

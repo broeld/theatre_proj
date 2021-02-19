@@ -1,0 +1,42 @@
+{% extends 'account/register.html' %}
+{% load static %}
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/account/login.css' %}">
+{% endblock %}
+
+{% block title %}Login{% endblock %}
+
+{% block section_title %}Login{% endblock %}
+
+{% block form_item %}
+    <div class="auth__form">
+        <form method="post">
+            <div class="auth__networks">
+                <input class="btn" type="button" value="Login with Google">
+                <input class="btn" type="button" value="Login with Facebook">
+            </div>
+            {% if message %}
+                <div class="auth__message">
+                    {{ message }}!
+                </div>
+            {% endif %}
+            <div class="auth__data">Username:</div>
+            <div>{{ form.username }}</div>
+            <div class="auth__data">Password:</div>
+            <div>{{ form.password }}</div>
+            <div class="auth__forgot"><a href="{% url 'users:password-reset' %}">Forgot password?</a></div>
+            {% csrf_token %}
+            <div class="auth__btn">
+                <p><input class="btn" type="submit" value="Login"></p>
+            </div>
+        </form>
+    </div>
+
+    <div class="auth__signup">
+        Don’t have an account?
+        <a href="{% url 'users:signup' %}">Sign up</a>
+    </div>
+
+{% endblock %}
+
+
